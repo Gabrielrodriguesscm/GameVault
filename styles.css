@@ -4,9 +4,10 @@
 
 body {
     margin: 0;
-    color: white;
-    background-color: black;
+    background: radial-gradient(circle at top center, #130f1c 0%, #08060b 60%, #000000 100%);
+    background-attachment: fixed;
     font-family: "Inter", sans-serif;
+    color: white;
 }
 
 header {
@@ -14,6 +15,26 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
+}
+
+.search-bar input {
+    padding: 10px;
+    
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    placeholder {
+        color: #a0a0a0;
+    }
+
+    
+    
+}
+
+input:focus {
+    outline: none;
+    border-color: #a855f7;
 }
 
 nav ul {
@@ -118,4 +139,90 @@ p {
     color: #a0a0a0;
     font-size: 14px;
     margin: 0;
+}
+
+.hero {
+    
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.5)), url('images/persona-5-royal-cover-art.webp');
+    background-size: cover;
+    background-position: center;
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    padding: 60px 40px;
+    margin-bottom: 40px;
+    border-radius: 12px;
+    border: 1px solid #2a1f3d;
+}
+
+.hero-content {
+    max-width: 600px;
+    text-align: left; 
+}
+
+.hero-tag {
+    display: inline-block;
+    background-color: #a855f7;
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.hero h2 {
+    font-size: 38px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.hero p {
+    color: #b4b4b4;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro translúcido */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    
+    /* Estados de transição */
+    opacity: 0;
+    pointer-events: none; /* Impede o texto de bloquear o rato quando estiver invisível */
+    transition: opacity 0.3s ease;
+}
+
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 250px; /* Define uma altura fixa igual para todos os cards (podes ajustar para 250px ou 280px) */
+    overflow: hidden;
+    border-radius: 8px 8px 0 0; /* Arredonda só em cima se o card tiver bordas arredondadas */
+}
+
+/* Quando passar o rato no container, ativamos o overlay */
+.card-image-container:hover .card-overlay {
+    opacity: 1;
+    pointer-events: auto; /* Liberta a interação quando visível */
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* O segredo: corta os excessos de forma proporcional para preencher a caixa sem esticar */
+    display: block;
 }
