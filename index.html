@@ -14,7 +14,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;600;700&display=swap"
         rel="stylesheet">
-    
+
 </head>
 
 <body>
@@ -48,12 +48,19 @@
             </div>
         </section>
 
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="acao">Ação</button>
+            <button class="filter-btn" data-filter="rpg">RPG</button>
+            <button class="filter-btn" data-filter="fps">FPS</button>
+        </div>
 
-        <section>
+
+        <section id="games" class="games-section">
             <h2>Principais Jogos</h2>
             <div class="game-grids">
-                
-                <div class="game-card">
+
+                <div class="game-card" data-category="RPG">
                     <div class="card-image-container">
                         <img src="./images/persona-5-royal-cover-art.webp" alt="persona5royalcoverart">
                         <div class="card-overlay">
@@ -63,11 +70,11 @@
                         </div>
                     </div>
                     <h3>Persona 5 Royal</h3>
-                    <p>JRPG/RPG</p>
+                    <span class="game-category">JRPG/RPG</span>
                 </div>
 
-                
-                <div class="game-card">
+
+                <div class="game-card" data-category="FPS">
                     <div class="card-image-container">
                         <img src="./images/overwatchcoverart.png" alt="overwatchcoverart">
                         <div class="card-overlay">
@@ -77,11 +84,11 @@
                         </div>
                     </div>
                     <h3>Overwatch</h3>
-                    <p>FPS/HeroShooter</p>
+                    <span class="game-category">FPS/HeroShooter</span>
                 </div>
 
-                
-                <div class="game-card">
+
+                <div class="game-card" data-category="Ação">
                     <div class="card-image-container">
                         <img src="./images/7622168-devil-may-cry-5-xbox-one-front-cover.jpg" alt="devilmaycry5coverart">
                         <div class="card-overlay">
@@ -91,7 +98,7 @@
                         </div>
                     </div>
                     <h3>Devil May Cry 5</h3>
-                    <p>Ação, Aventura, Hack and Slash</p>
+                    <span class="game-category">Ação, Aventura, Hack and Slash</span>
                 </div>
             </div>
         </section>
