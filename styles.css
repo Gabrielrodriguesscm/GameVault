@@ -313,6 +313,11 @@ p {
     object-fit: cover;
 }
 
+.game-card-compact:hover {
+    transform: translateY(-5px);
+    border-color: #a855f7;
+}
+
 
 @media (max-width: 768px) {
     header {

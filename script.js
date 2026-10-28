@@ -1,4 +1,10 @@
 const botaoExplorar = document.querySelector('.btn-primary');
+const semResultado = document.querySelector('#no-results');
+const searchBar = document.querySelector('.search-bar input')
+const botaoFiltro = document.querySelectorAll('.filter-btn')
+const gameCards = document.querySelectorAll('#games .game-card')
+let categoryActive = 'all'
+let searchText = ''
 
 botaoExplorar.addEventListener('click', function(event) {
     event.preventDefault();
@@ -9,8 +15,6 @@ botaoExplorar.addEventListener('click', function(event) {
     secaoGames.scrollIntoView({ behavior: 'smooth' });
 });
 
-const botaoFiltro = document.querySelectorAll('.filter-btn')
-const gameCards = document.querySelectorAll('#games .game-card')
 
 botaoFiltro.forEach(function (botao){
     botao.addEventListener('click', function(event) {
@@ -21,17 +25,43 @@ botaoFiltro.forEach(function (botao){
         
         botao.classList.add('active')
 
-        const filtro = botao.dataset.filter
+        categoryActive = botao.dataset.filter
+        aplicarFiltro()
 
-        gameCards.forEach(function (card) {
-           if (filtro === 'all' || card.dataset.category === filtro){
-             card.classList.remove('hidden')
-           }
-           else{
-             card.classList.add('hidden')
-           }
-
-        })
-
+        
     })
+})
+
+
+function aplicarFiltro() {
+    let visiveis = 0
+
+    gameCards.forEach(function(card){
+       const nome = card.querySelector('h3').textContent.toLowerCase()
+
+        const categoriaBate = categoryActive === 'all' || card.dataset.category === categoryActive
+
+        const nomeBate = nome.includes(searchText)
+
+
+        if (nomeBate && categoriaBate){
+            card.classList.remove('hidden')
+            visiveis = visiveis + 1
+        }
+        else{
+            card.classList.add('hidden')
+        }
+    })
+
+    if (visiveis === 0) {
+        semResultado.classList.remove('hidden')
+    }
+    else {
+        semResultado.classList.add('hidden')
+    }
+}
+
+searchBar.addEventListener('input', function(){
+    searchText = searchBar.value.toLowerCase()
+    aplicarFiltro()
 })
