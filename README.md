@@ -55,7 +55,7 @@ GameVault/
 
 ## Próximos passos
 
-- [ ] Guardar os jogos em um array de objetos e gerar os cards pelo JavaScript
+- [X] Guardar os jogos em um array de objetos e gerar os cards pelo JavaScript
 - [ ] Preço nos cards e carrinho de compras (salvo no `localStorage`)
 - [ ] Página de detalhes de cada jogo
 - [ ] Checkout simulado
